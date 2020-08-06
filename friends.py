@@ -2,7 +2,7 @@
 # friends.txt를 다운받아서 같은 폴더에 넣은 다음 프로그램을 실행합니다. 
 import os, re, codecs
 #자신의 저장경로를 입력해야 합니다. 
-os.chdir(r'J:\one-drive 20200728\MyScript\python\final_git_hub')
+os.chdir(r' ')
 f = open('friends101.txt', 'r', encoding = 'utf-8')
 script101 = f.read()
 
