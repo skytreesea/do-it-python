@@ -1,7 +1,8 @@
 import usecsv, os, re
 from switch import switch 
-os.chdir(r'C:\Users\지재지\OneDrive - Office Everyday\MyScript\python\manuscript_Book\Data\realestate')
-
+# 자기 경로를 입력해야 합니다. 
+os.chdir(r' ')
+# csv 파일이 같은 폴더에 있는지 먼저 확인하세요.
 apt = switch(usecsv.opencsv('apt_201910.csv'))
 #apt = usecsv.makenewlist(apt)
 #print(apt[3])
