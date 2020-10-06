@@ -28,9 +28,9 @@ df['단가']= df.가격/df.면적
 # 가격 면적 단가 10개 출력해보기
 print(df.loc[:10, ('가격', '면적', '단가')])
 # 가격 오름차순 정렬하기
-print(df.sort_index(by='가격').loc[:,('가격','지역')])
+print(df.sort_values(by='가격').loc[:,('가격','지역')])
 # 25억 넘는 아파트만 출력하기
-print(df[df.가격 > 250000].sort_index(by = '계약일').loc[:,('가격','면적','계약일')])
+print(df[df.가격 > 250000].sort_values(by = '계약일').loc[:,('가격','면적','계약일')])
 
 # 강릉 아파트만 출력
 print(df[df.지역.str.find('강릉') > -1])
