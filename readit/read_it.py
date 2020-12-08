@@ -1,6 +1,6 @@
 import csv, os, re
-# 
-os.chdir(r'C:\Users\user\Documents\지방공기업평가원_김창현\타당성검토\설립 타당성\타당성검토\완도해양치유공단\보고서\자동화')
+# 아래 작은 따옴표 안에 경로를 추가해줍니다. 
+os.chdir(r'###### 경로 추가 Add Path here ######')
 def opencsv(filename):
     f=open(filename, 'r')
     reader=csv.reader(f)
