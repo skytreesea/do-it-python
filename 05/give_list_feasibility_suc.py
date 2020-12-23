@@ -1,4 +1,4 @@
-##### 공기업 설립 시 타당성 조사를 위한 경상수지 비교 기본 프로그램 #######
+##### 기업 설립 시 타당성 조사를 위한 경상수지 비교 기본 프로그램 #######
 # 환경 데이터로 바로 결과값 도출하도록 함(순서: 현행 수입, 인건비, 운영비, 공단방식 수입, 인건비, 운영비 순으로 입력)
 env_data = [0,40144,461034,736255,356785,777226]
 
@@ -9,7 +9,7 @@ def writecsv(filename, the_list):
     with open(filename,'w',newline='') as f:
         a=csv.writer(f, delimiter=',')
         a.writerows(the_list)
-# 현행방식과 공기업 방식의 인플레이션 인덱스 부여
+# 현행방식과 새기업 방식의 인플레이션 인덱스 부여
 # 물가상승률
 price_index = .011
 # 인건비 상승률
@@ -48,14 +48,14 @@ print('현행 영업이익')
 print(profit_current)
 print(balance_current)
 print(round(balance_current.mean(),3))
-print('공기업 방식 영업이익')
+print('새기업 방식 영업이익')
 print(profit_new)
 print(balance_new)
 print(round(balance_new.mean(),3))
 if balance_new.mean() >= .5:
-    print('공기업 방식 경상수지 비율 5할 이상 충족, 경상수지 비율:', round(balance_new.mean(),3) )
+    print('새기업 방식 경상수지 비율 5할 이상 충족, 경상수지 비율:', round(balance_new.mean(),3) )
 else:
-    print('공기업 방식 경상수지 비율 5할 이상 미충족, 경상수지 비율:', round(balance_new.mean(),3) )
+    print('새기업 방식 경상수지 비율 5할 이상 미충족, 경상수지 비율:', round(balance_new.mean(),3) )
 #수지개선효과
 improving_impact = profit_new-profit_current
 print(improving_impact, '\n',improving_impact.sum(), "천원 수지개선 효과")
