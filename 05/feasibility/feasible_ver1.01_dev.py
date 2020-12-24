@@ -6,7 +6,6 @@ os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05\feasibility\data')
 #usecsv의 값을 저장하도록 함 
 import csv, os
 import numpy as np
-#csv 읽고 쓰기 
 def opencsv(filename):
     f=open(filename, 'r')
     reader=csv.reader(f)
@@ -14,32 +13,33 @@ def opencsv(filename):
     for i in reader:
         output.append(i)
     return output
-
 def writecsv(filename, the_list):
     with open(filename,'w',newline='') as f:
         a=csv.writer(f, delimiter=',')
         a.writerows(the_list)
-
 #퍼센트 만들기 
 percent = lambda x: str(round(x*100,2))+'%'
-#어떤 사업의 결과를 불러낼 것인지
-number = 1
+print(percent(0.011))
+
 #불러온 데이터에서 필요한 경상수지부분만 data_basic으로 전환
-data_basic = opencsv('주요데이터입력.csv')
-name = data_basic[number][0] +'_'+ data_basic[number][1]
-data = [float(i) for i in data_basic[number][2:]]
+data_basic = opencsv('input_data(2).csv')
+name = data_basic[1][0]
+data = [int(i) for i in data_basic[1][1:7]]
+
 # 현행방식과 공기업 방식의 인플레이션 인덱스 부여
 # 물가상승률
-price_index = data[6]
+price_index = .011
 # 인건비 상승률
-salary_increase =data[7]
-# 대상사업수입증가율
-income_increase = data[8]
+salary_increase = 0.0414
 # 새 회사의 인건비 상승률 
-salary_increase_new_company = data[9]
+salary_increase_new_company = 0.0414
+
+# 수입증가율
+income_increase = .011
 start_year = 2022
 # 분석기간(년도)
 num_years = 5
+
 def inflator(intinial_value, increasing_ratio, num_years): 
   # 매년 increasing_ratio 씩 num_year 동안 증가, initial_value 입력
   new_list =[]
@@ -110,9 +110,9 @@ label_plus = np.hstack([label,new_array])
 total=[]
 total.append(['사업명',	name])
 total.append(['',	'물가상승률','인건비상승률',	'수입증가율'+percent(income_increase),	'인건비상승률',	'시작년도'	])
-total.append(['',percent(price_index),percent(salary_increase),percent(income_increase),percent(salary_increase_new_company),str(start_year),'(단위:천원)'])
+total.append(['',percent(price_index),percent(salary_increase),percent(income_increase),percent(salary_increase_new_company),percent(price_index),'(단위:천원)'])
 total.append(['현행'])
-total.append(['구분','2022',	'2023',	'2024',	'2025',	'2026',	'계',	'평균'])
+total.append(['구분',	'2022',	'2023',	'2024',	'2025',	'2026',	'계',	'평균'])
 k=0
 # 2번째 요소부터 퍼센트가 들어있는 리스트를 퍼센트 형태로 바꿔주는 함수 
 def percent_list(list_of_percent) : 
@@ -126,19 +126,16 @@ for i in label_plus:
         total.append(percent_list(i))
     else: 
         total.append(i)
-    if k == 5:
+    if k == 6:
         total.append(['공단방식'])
-        total.append(['구분',	'2022',	'2023',	'2024',	'2025',	'2026',	'계',	'평균'])
-    if k == 11:
+        total.append(['공기업방식',	'2022',	'2023',	'2024',	'2025',	'2026',	'계',	'평균'])
+    if k == 12:
         total.append(['수지분석 결과'])
 
     k+=1
 if balance_new.mean() >= .5:
-    final_result =  "가능"
-    total.append(['충족', '경상수지 비율:', percent(balance_new.mean()), final_result] )
+    total.append(['충족', '경상수지 비율:', percent(balance_new.mean()),'단위사업 가능'] )
 else:
-    final_result =  "불가능"
-    total.append(['미충족', '경상수지 비율:', percent(balance_new.mean()),final_result] )
+    total.append(['미충족', '경상수지 비율:', percent(balance_new.mean()),'단위사업 불가능'] )
 # 최종명령
-writecsv(name+'_'+final_result+'_물상'+str(price_index)+'인상'+str(salary_increase_new_company)+'수입증가'+str(income_increase)+'.csv',total)
-print(name,final_result, '물가상승률',percent(price_index),"공무원인건비상승률",percent(salary_increase))
+writecsv(name+'_result_with_title.csv',total)
