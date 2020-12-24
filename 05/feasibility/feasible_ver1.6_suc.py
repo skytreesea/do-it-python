@@ -2,7 +2,7 @@
 import pandas as pd
 # 환경 데이터로 바로 결과값 도출하도록 함(순서: 현행 수입, 인건비, 운영비, 공단방식 수입, 인건비, 운영비 순으로 입력)
 import os,re
-os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05\feasibility\data')
+os.chdir(r'###여기에 경로삽입###')
 #usecsv의 값을 저장하도록 함 
 import csv, os
 import numpy as np
