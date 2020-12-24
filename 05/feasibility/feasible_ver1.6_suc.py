@@ -23,7 +23,7 @@ def writecsv(filename, the_list):
 #퍼센트 만들기 
 percent = lambda x: str(round(x*100,2))+'%'
 #어떤 사업의 결과를 불러낼 것인지
-number = 3
+number = 2
 #불러온 데이터에서 필요한 경상수지부분만 data_basic으로 전환
 data_basic = opencsv('주요데이터입력.csv')
 name = data_basic[number][0] +'_'+ data_basic[number][1]

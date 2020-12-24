@@ -4,7 +4,6 @@ import pandas as pd
 import os
 os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05\feasibility')
 env_data = [25636,40144,461034,736255,356785,777226]
-name = 'new사업명'
 #usecsv의 값을 저장하도록 함 
 import csv, os
 import numpy as np
@@ -20,8 +19,9 @@ def writecsv(filename, the_list):
         a=csv.writer(f, delimiter=',')
         a.writerows(the_list)
 #불러온 데이터에서 필요한 경상수지부분만 data_basic으로 전환
-data_basic = opencsv('input_data.csv')[1][1:7]
-data = [int(i) for i in data_basic]
+data_basic = opencsv('input_data.csv')
+name = data_basic[1][0]
+data = [int(i) for i in data_basic[1][1:7]]
 
 print(data)
 # 현행방식과 공기업 방식의 인플레이션 인덱스 부여
