@@ -25,7 +25,7 @@ def writecsv(filename, the_list):
 #퍼센트 만들기 
 percent = lambda x: str(round(x*100,2))+'%'
 #불러온 데이터에서 필요한 경상수지부분만 data_basic으로 전환
-data_basic = opencsv('주요데이터입력(취합).csv')
+data_basic = opencsv('주요데이터입력.csv')
 k=0
 for i in data_basic:
     print(str(k)+': '+i[0] +'_'+i[1])

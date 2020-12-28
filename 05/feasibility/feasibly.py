@@ -6,7 +6,7 @@ import os,re
 #os.chdir(r'###주요데이터입력.csv 와 결과값을 저장할 경로삽입###')
 os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05\feasibility\data')
 #usecsv의 값을 저장하도록 함 
-import csv, os
+import csv, os, sys
 import numpy as np
 #csv 읽고 쓰기 
 def opencsv(filename):
@@ -27,12 +27,14 @@ percent = lambda x: str(round(x*100,2))+'%'
 #불러온 데이터에서 필요한 경상수지부분만 data_basic으로 전환
 data_basic = opencsv('주요데이터입력(취합).csv')
 k=0
-for i in data_basic:
-    print(str(k)+': '+i[0] +'_'+i[1])
-    k+=1
+number = int(sys.argv[1])
+print(number)
+# for i in data_basic:
+#     print(str(k)+': '+i[0] +'_'+i[1])
+#     k+=1
     
 #어떤 사업의 결과를 불러낼 것인지
-number = int(input('사업의 번호를 입력하세요.'))
+# number = int(input('사업의 번호를 입력하세요.'))
 name = data_basic[number][0] +'_'+ data_basic[number][1]
 data_name = [i for i in data_basic[number][2:]]
 data = [float(i) for i in data_basic[number][2:]]
@@ -156,6 +158,7 @@ else:
     final_result =  "불가능"
     total.append(['미충족', '경상수지 비율:', percent(balance_new.mean()),final_result] )
 # 최종명령
+os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05\feasibility\data\results')
 writecsv(name+'_'+final_result+percent(balance_new.mean())+'.csv',total)
 print(name,'경상수지판단_'+final_result,'**수지비율_'+percent(balance_new.mean())+ '_물가상승률',percent(price_index),"공무원인건비상승률",percent(salary_increase))
 
