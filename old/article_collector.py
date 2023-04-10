@@ -6,7 +6,7 @@ url='https://news.daum.net/'
 f= open(str(datetime.date.today())+'articles.txt','w')
 soup=bs(ur.urlopen(url).read(),'html.parser')
 
-for i in soup.find_all('div',{"class":"thumb_relate"}):
+for i in soup.find_all('div',{"class":"item_issue"}):
     try:
         f.write(i.text+'\n')
         f.write(i.find_all('a')[0].get('href')+ '\n')
