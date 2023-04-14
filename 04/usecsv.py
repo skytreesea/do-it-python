@@ -26,11 +26,10 @@ def writecsv(filename, the_list):
 # as you change a csv file into a csv style, all the elements are of string style
 # if you want to change it into float or integer, you can use the method of switch.
 # By changing them into the data of float, you can use it as figure. 
+ 
 # a = [['1','2','3'],['2','3',5']] 
 # b = switch(a)
 # b = [[1.0,2.0,3.0],[2.0,3.0,5.0]]
-
-def switch(listName):
     for i in listName:        
         for j in i:
             try:
