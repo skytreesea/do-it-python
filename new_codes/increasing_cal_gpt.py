@@ -8,7 +8,7 @@ def calculate_value():  # 먼저 창을 띄우기 전에 계산할 방법을 함
     for i in range(num_years):
         new_value = initial_value * (1 + rate/100)**(i+1) # 계산법을 알려줍니다.
         result_label.config(text=f"Year {i+1}: {new_value:.2f}") # 소수점 두 자리 수까지 출력합니다. 
-
+        
 root = tk.Tk()
 root.title("Yearly Growth Calculator")
 
