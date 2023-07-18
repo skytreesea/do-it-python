@@ -3,7 +3,7 @@
 import pandas as pd
 import re, os
 # 자신의 파일을 불러옵니다. 
-os.chdir(r'C:\Users\ERC\Documents\GitHub\do-it-python\05')
+os.chdir(r'C:\Users\skytr\Documents\GitHub\do-it-python\05')
 df = pd.read_csv("apt201302.csv", encoding = 'cp949')
 result = df.groupby('단지명')['단가'].mean() 
 result.to_clipboard()
