@@ -1,5 +1,4 @@
-
-
+# 네이버 경제 뉴스 크롤링 성공 코드 
 import os, re
 import requests #urllib보다 requests가 간단하고 더 범용적으로 쓰임
 from bs4 import BeautifulSoup  # BeautifulSoup를 있는 그대로 씀(많은 사람들이 사용하는 방식)
@@ -33,3 +32,6 @@ for i in soup.find_all('div', {"class" : "sh_text"})[:10]:
         except UnicodeEncodeError as e:
             print(f"Error encoding character: {e}")
         # 유니코드 인코드 에러는 챗GPT로 해결 
+        
+        
+        
