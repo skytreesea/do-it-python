@@ -6,7 +6,7 @@ import csv, os, re
 # opencsv('a.csv') or a = opencsv('a.csv')  
 
 def opencsv(filename):
-    f=open(filename, 'r', encoding = 'utf8')
+    f=open(filename, 'r', encoding = 'cp949')
     reader=csv.reader(f)
     output=[]
     for i in reader:
@@ -18,7 +18,7 @@ def opencsv(filename):
 # after import usecsv, then "writecsv('a.csv', a)
 
 def writecsv(filename, the_list):
-    with open(filename,'w',newline='') as f:
+    with open(filename,'w',newline='',encoding ='utf-8-sig') as f:
         a=csv.writer(f, delimiter=',')
         a.writerows(the_list)
 
@@ -30,6 +30,7 @@ def writecsv(filename, the_list):
 # a = [['1','2','3'],['2','3',5']] 
 # b = switch(a)
 # b = [[1.0,2.0,3.0],[2.0,3.0,5.0]]
+def switch(listName):
     for i in listName:        
         for j in i:
             try:
