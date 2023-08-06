@@ -6,7 +6,7 @@ import csv, os, re
 # opencsv('a.csv') or a = opencsv('a.csv')  
 
 def opencsv(filename):
-    f=open(filename, 'r')
+    f=open(filename, 'r', encoding = 'utf8')
     reader=csv.reader(f)
     output=[]
     for i in reader:
