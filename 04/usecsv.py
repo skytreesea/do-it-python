@@ -33,7 +33,7 @@ def writecsv(filename, the_list):
     for i in listName:        
         for j in i:
             try:
-                i[i.index(j)] = float(re.sub(',','',j))
+                i[i.index(j)] =float(j.replace(',', '')) 
             except:
                 pass
     return listName
