@@ -1,10 +1,10 @@
-import usecsv, csv, re
+import usecsv, csv, re, os
 # 자기 경로를 입력해야 합니다.  
 # csv 파일이 같은 폴더에 있는지 먼저 확인하세요.
 #apt = usecsv.switch(usecsv.opencsv(r'C:\Users\skytr\Documents\GitHub\do-it-python\05\\apt2308.csv'))
-apt=usecsv.opencsv(r'C:\Users\skytr\Documents\GitHub\do-it-python\05\\apt2308.csv' )
+os.chdir(r'C:\Users\skytr\Documents\GitHub\do-it-python\05')
+apt=usecsv.opencsv(r'apt2308.csv' )
 apt = usecsv.switch(apt)
-
 # 불러오는 데 성공 
 for i in apt[:6]:
     print(i[0],i[4],i[-8]) 
@@ -32,6 +32,6 @@ for i in apt:
 		pass
 
 print(new_list)
-usecsv.writecsv(r'C:\Users\skytr\Documents\GitHub\do-it-python\05\over120_lower30000.csv', new_list)
+usecsv.writecsv(r'result_over120_lower30000.csv', new_list)
 # writecsv() 함수로 new_list 객체에 저장된 CSV형 리스트를 CSV 파일로 저장합니다
 
