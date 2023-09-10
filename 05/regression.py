@@ -34,7 +34,10 @@ else :
 
 print( '남성', round(male.mean(),2), '여성',round(female.mean(),2),'\n등분산검정 결과 LeveneResult(F) : %.3f \np-value : %.3f' % (l_result)) 
 
-# 가상의 분석자료로 회귀분석 결과 구하기 
+
+# 가상의 분석자료로 회귀분석 결과 구하기(변수 2개 영어 --> 직업만족도)
+model = smf.ols(formula = 'jobSatisfaction ~ English ', data = df)
+# 가상의 분석자료로 회귀분석 결과 구하기 변수 3개
 model = smf.ols(formula = 'jobSatisfaction ~ English + stress + income', data = df)
 result = model.fit()
 print(result.summary())
