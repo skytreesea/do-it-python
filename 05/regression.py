@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
 
-os.chdir(r'J:\one-drive 20200728\MyScript\python\final_git_hub')
+os.chdir(r'C:\Users\skytr\Documents\GitHub\do-it-python\05')
 
 # 직업만족도
 # survey 변수들:  name sex  income  English  jobSatisfaction  stress
