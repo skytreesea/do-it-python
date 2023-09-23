@@ -33,4 +33,4 @@ print(df2[['income','jobSatisfaction','stress']].corr(method = "spearman"))
 
 print(df2[['income','stress']].corr()) 
 
-df2[['income','stress']].corr().to_csv(r'C:\Users\skytr\Documents\GitHub\do-it-python\05\result_survey.csv')
+# df2[['income','stress']].corr().to_csv('파일이름.csv')
