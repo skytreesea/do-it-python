@@ -1,18 +1,31 @@
-# 저자정보: 기본 url = https://www.data.go.kr/iim/api/selectAPIAcountView.do
+# 이 코드는 책에 들어갈 정도로 성공한 코드입니다. api_key는 본인의 키를 활용하세요.
 import requests 
 from bs4 import BeautifulSoup
 
+api_key = 'your_key'
 # 내 서비스키를 이용해서 만든 예제 코드 
-url = 'https://apis.data.go.kr/B552540/KCIOpenApi/artiInfo/openApiM330List?serviceKey=7JlKxM7fEbOErQRa32MtR3%2Fg%2FBxi3JTPbwPfCw781Ma4uvwql5x2r2wM0Zh051RRUK%2Bw7YSwijxr0Tklej3cOg%3D%3D&recordCnt=20&pageNo=1'
+base_url = f'http://apis.data.go.kr/9720000/searchservice/basic?serviceKey={api_key}&pageno=1&displaylines=10&search=자료명,미국'
  
-# 일반 크롤링 코드와 유사함
-headers = {"User-Agent":'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'}
-res = requests.get(url, headers = headers)
-soup = BeautifulSoup(res.text, 'lxml') 
+# 일반 크롤링 코드와 유사합니다. 
+response = requests.get(base_url) 
+print(response)
+soup = BeautifulSoup(response.text, 'lxml') 
 
-# 변수가 소문자로 되어 있음
-for i in soup.find_all('item'):
-    # 학교명 태그 
-    print(i.find('belo_insi_nm').text)
-    # 이름 태그 
-    print(i.find('cret_kor_nm').text)
+# soup를 출력합니다. 
+print(soup.find_all('item'))
+
+# 각 item에서 name과 value를 각각 찾아봅니다. 
+for item in soup.find_all('item'):
+    print(item.find('name'), item.find('value'))
+     
+# 기사명만 찾기
+for item in soup.find_all('item'):
+    if item.find('name').text == '기사명':
+        print(item.find('value').text)
+     
+# 저자명과 기사명 
+for item in soup.find_all('item'):
+    if item.find('name').text == '기사명':
+        print(item.find('value').text)
+    if item.find('name').text == '저자명':
+        print(item.find('value').text)
