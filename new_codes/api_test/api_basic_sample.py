@@ -1,6 +1,4 @@
 # Python3 샘플 코드 #
-
-
 import requests
 
 url = 'http://openapi.molit.go.kr/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcNrgTrade'

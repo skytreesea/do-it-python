@@ -9,7 +9,7 @@ url = 'https://apis.data.go.kr/B552540/KCIOpenApi/artiInfo/openApiM330List?servi
 headers = {"User-Agent":'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.87 Safari/537.36'}
 res = requests.get(url, headers = headers)
 soup = BeautifulSoup(res.text, 'lxml') 
- 
+
 # 변수가 소문자로 되어 있음
 for i in soup.find_all('item'):
     # 학교명 태그 
