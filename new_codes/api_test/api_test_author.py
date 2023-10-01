@@ -2,7 +2,7 @@
 import requests 
 from bs4 import BeautifulSoup
 
-api_key = '7JlKxM7fEbOErQRa32MtR3%2Fg%2FBxi3JTPbwPfCw781Ma4uvwql5x2r2wM0Zh051RRUK%2Bw7YSwijxr0Tklej3cOg%3D%3D'
+api_key = 'your key'
 # 내 서비스키를 이용해서 만든 예제 코드 
 base_url = f'http://apis.data.go.kr/9720000/searchservice/basic?serviceKey={api_key}&pageno=1&displaylines=10&search=자료명,미국'
  
