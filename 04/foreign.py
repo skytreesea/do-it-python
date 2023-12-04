@@ -4,7 +4,7 @@
 
 import os, re		## os 모듈과 re 모듈은 항상 필요하기 때문에 먼저 임포트 합니다
 import usecsv		## usecsv 모듈을 임포트 합니다		
-os.chdir(r'J:\one-drive 20200728\MyScript\python\final_git_hub')	## popSeoul.csv 파일을 저장한 경로로 이동합니다
+os.chdir(r'C:\Users\skytr\Documents\GitHub\do-it-python\04')	## popSeoul.csv 파일을 저장한 경로로 이동합니다
 
 # 파일 열기 
 total = usecsv.opencsv('popSeoul.csv')	
