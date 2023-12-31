@@ -1,5 +1,5 @@
 # 영어점수 직업만족도 회귀분석  (Do it 파이썬 생활프로그래밍) 초판 2020: 218페이지
-import os, re, usecsv
+import os, re
 import numpy as np
 
 # 데이터프레임 다루기 
