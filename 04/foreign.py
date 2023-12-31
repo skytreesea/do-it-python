@@ -23,16 +23,21 @@ for i in newPop:
 ## i[0]에는 지역구 이름이 저장되어 있고, foreign은 공식대로 우리가 계산한 외국인 비율입니다
 	except:
 		pass
+
+print(i)
 new = [['구', '한국인', '외국인', '외국인 비율(%)']]   
+new.append([i[0], i[1],i[2],foreign])
+# 강동구 정보가 남아 있습니다. 
+print(new)
 # 등록외국인의 비율이 3이 넘을 때만 넘을 때만 출력합니다. 
 for i in newPop:
-        foreign = 0 
-        try:
-            foreign = round(i[2] / (i[1] + i[2]) * 100, 1)
-            if foreign > 3:		 
-                new.append([i[0], i[1],i[2],foreign])
-        except:
-            pass
+    foreign = 0 
+    try:
+        foreign = round(i[2] / (i[1] + i[2]) * 100, 1)
+        if foreign > 3:		 
+            new.append([i[0], i[1],i[2],foreign])
+    except:
+        pass
 
 # 3% 넘는 구만 파일로 저장하기
 usecsv.writecsv('newPop.csv',new)
