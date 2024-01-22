@@ -1,7 +1,7 @@
 # api 실습 파일 260
 import requests
 from bs4 import BeautifulSoup # 파싱하려면 BeautifulSoup를 임포트 합니다
-api_key = "7JlKxM7fEbOErQRa32MtR3%2Fg%2FBxi3JTPbwPfCw781Ma4uvwql5x2r2wM0Zh051RRUK%2Bw7YSwijxr0Tklej3cOg%3D%3D"
+api_key = "your_api_key"
 base_url = f'http://apis.data.go.kr/9720000/searchservice/basic?serviceKey={api_key}&pageno=1&displaylines=10&search=자료명,미국'
 response = requests.get(base_url)
 soup = BeautifulSoup(response.text, 'lxml')
